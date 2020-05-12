@@ -7,7 +7,12 @@ Date: 2020-05-12
 import os
 
 tiku = open("tiku.html", 'wt')
-count = 0
+
+questions = set()
+question_count = 0
+question_count_list = []
+total_count = 0
+total_count_list = []
 
 for dirname in os.listdir("samples"):
     for filename in os.listdir("samples/" + dirname):
@@ -19,29 +24,42 @@ for dirname in os.listdir("samples"):
         in_context = False
 
         for line in f.readlines():
+            # 题目标题
             if "_content" in line:
-                count += 1
+                total_count += 1
                 low = line.find('value="') + 7
                 high = line.find('><iframe') - 1
-                tiku.write("<h3>" + str(count) + ". " + line[low:high] + "</h3>")
-            
+                title = line[low:high]
+
+                if title not in questions:
+                    questions.add(title)
+                    question_count += 1
+                    tiku.write("<h3>" + str(question_count) + ". " + title + "</h3>")
+    
+                question_count_list.append(question_count)
+                total_count_list.append(total_count)
+            # 题目选项
             if "answer" in line and "sogoutip" not in line:
                 low = line.find('answer') + 8
                 tiku.write("<div>" + line[low:] + "</div>")
-
+            # 题目答案区域结束
             if in_context and "</td>" in line:
                 in_context = False
                 tiku.write("</div>")
-
+            # 题目答案选项内容（有多选情况）
             if in_context:
                 tiku.write(line)
-
+            # 题目答案区域开始
             if "[参考答案]" in line:
                 in_context = True
                 tiku.write("<h5>参考答案</h5><div>")
-
-
-
         f.close()
 
 tiku.close()
+print(question_count)
+print(total_count)
+
+# 预测题库题目数量
+import matplotlib.pyplot as plt
+plt.plot(total_count_list, question_count_list)
+plt.show()
