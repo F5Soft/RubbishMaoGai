@@ -31,8 +31,8 @@ for dirname in os.listdir("samples"):
         if "_files" in filename:
             continue
 
-        filename = dirname + '/' + filename
-        f = open("samples/" + filename, 'rt', encoding='GBK')
+        filename = "samples/" + dirname + '/' + filename
+        f = open(filename, 'rt', encoding='GBK')
         in_context = False
         in_answer_context = False
 
@@ -40,7 +40,7 @@ for dirname in os.listdir("samples"):
             # 题目标题
             if "_content" in line:
                 total_count += 1
-                low = line.find('value="') + 7
+                low = line.find('value=') + 8
                 high = line.find('><iframe') - 1
                 title = unescape(line[low:high])
 
