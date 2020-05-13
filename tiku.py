@@ -22,6 +22,7 @@ for dirname in os.listdir("samples"):
         filename = dirname + '/' + filename
         f = open("samples/" + filename, 'rt', encoding='GBK')
         in_context = False
+        in_answer_context = False
 
         for line in f.readlines():
             # 题目标题
@@ -32,26 +33,32 @@ for dirname in os.listdir("samples"):
                 title = line[low:high]
 
                 if title not in questions:
+                    in_context = True
                     questions.add(title)
                     question_count += 1
                     tiku.write("<h3>" + str(question_count) + ". " + title + "</h3>")
     
                 question_count_list.append(question_count)
                 total_count_list.append(total_count)
+
             # 题目选项
-            if "answer" in line and "sogoutip" not in line:
+            if in_context and "answer" in line and "sogoutip" not in line:
                 low = line.find('answer') + 8
                 tiku.write("<div>" + line[low:] + "</div>")
+
             # 题目答案区域结束
-            if in_context and "</td>" in line:
+            if in_answer_context and "</td>" in line:
                 in_context = False
+                in_answer_context = False
                 tiku.write("</div>")
+
             # 题目答案选项内容（有多选情况）
-            if in_context:
+            if in_answer_context:
                 tiku.write(line)
+
             # 题目答案区域开始
-            if "[参考答案]" in line:
-                in_context = True
+            if in_context and "[参考答案]" in line:
+                in_answer_context = True
                 tiku.write("<h5>参考答案</h5><div>")
         f.close()
 
