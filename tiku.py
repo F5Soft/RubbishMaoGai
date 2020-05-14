@@ -40,7 +40,7 @@ for dirname in os.listdir("samples"):
             # 题目标题
             if "_content" in line:
                 total_count += 1
-                low = line.find('value=') + 8
+                low = line.find('value=') + 7
                 high = line.find('><iframe') - 1
                 title = unescape(line[low:high])
 
