@@ -15,6 +15,10 @@ def unescape(raw: str):
     ans = raw.strip()
     ans = html.unescape(ans)
     ans = html.unescape(ans)
+    ans = ans.replace("<p>", '')
+    ans = ans.replace("</p>", '')
+    ans = ans.replace("<br>", '')
+    ans = ans.lstrip('>')
     return ans
 
 
@@ -66,7 +70,7 @@ for dirname in os.listdir("samples"):
 
             # 题目答案选项内容（有多选情况）
             if in_answer_context:
-                tiku.write(unescape(line))
+                tiku.write("<div>" + unescape(line) + "</div>")
 
             # 题目答案区域开始
             if in_context and "[参考答案]" in line:
