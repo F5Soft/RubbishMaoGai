@@ -18,6 +18,7 @@ def unescape(raw: str):
     ans = ans.replace("<p>", '')
     ans = ans.replace("</p>", '')
     ans = ans.replace("<br>", '')
+    ans = ans.replace(' ', '')
     ans = ans.lstrip('>')
     return ans
 
