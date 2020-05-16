@@ -5,8 +5,25 @@ Date: 2020-05-12
 """
 
 import os
+import html
 
-tiku = open("tiku.html", 'wt')
+
+def unescape(raw: str):
+    """
+    转换十进制Unicode表示的字符
+    """
+    ans = raw.strip()
+    ans = html.unescape(ans)
+    ans = html.unescape(ans)
+    ans = ans.replace("<p>", '')
+    ans = ans.replace("</p>", '')
+    ans = ans.replace("<br>", '')
+    ans = ans.replace(' ', '')
+    ans = ans.lstrip('>')
+    return ans
+
+
+tiku = open("tiku.html", 'wt', encoding="utf8")
 
 questions = set()
 question_count = 0
@@ -19,8 +36,8 @@ for dirname in os.listdir("samples"):
         if "_files" in filename:
             continue
 
-        filename = dirname + '/' + filename
-        f = open("samples/" + filename, 'rt', encoding='GBK')
+        filename = "samples/" + dirname + '/' + filename
+        f = open(filename, 'rt', encoding='GBK')
         in_context = False
         in_answer_context = False
 
@@ -28,9 +45,9 @@ for dirname in os.listdir("samples"):
             # 题目标题
             if "_content" in line:
                 total_count += 1
-                low = line.find('value="') + 7
+                low = line.find('value=') + 7
                 high = line.find('><iframe') - 1
-                title = line[low:high]
+                title = unescape(line[low:high])
 
                 if title not in questions:
                     in_context = True
@@ -44,7 +61,7 @@ for dirname in os.listdir("samples"):
             # 题目选项
             if in_context and "answer" in line and "sogoutip" not in line:
                 low = line.find('answer') + 8
-                tiku.write("<div>" + line[low:] + "</div>")
+                tiku.write("<div>" + unescape(line[low:]) + "</div>")
 
             # 题目答案区域结束
             if in_answer_context and "</td>" in line:
@@ -54,7 +71,7 @@ for dirname in os.listdir("samples"):
 
             # 题目答案选项内容（有多选情况）
             if in_answer_context:
-                tiku.write(line)
+                tiku.write("<div>" + unescape(line) + "</div>")
 
             # 题目答案区域开始
             if in_context and "[参考答案]" in line:
