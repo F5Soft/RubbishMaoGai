@@ -3,7 +3,9 @@ Auto generate database of questions based on known results for http://course.xmu
 自动根据已做结果生成厦大course毛概课的题库  
 **Note:** 只要是清华大学course系统，并且所在课程的在线测试结果有公布答案，都可以使用该脚本生成题库。
 
-## 收集样本2849题，严格去重后共383题
+## 收集样本3089题，严格去重后共383题
+![题库数量预测](https://github.com/F5Soft/RubbishMaoGai/blob/master/prediction.png?raw=true)
+
 **说明题库的内容基本上都有了，但不排除之后会有改动**  
 
 `samples`: 原始测试网页  
