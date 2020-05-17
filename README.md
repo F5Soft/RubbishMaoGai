@@ -3,20 +3,21 @@ Auto generate database of questions based on known results for http://course.xmu
 自动根据已做结果生成厦大course毛概课的题库  
 **Note:** 只要是清华大学course系统，并且所在课程的在线测试结果有公布答案，都可以使用该脚本生成题库。
 
-## 收集样本3089题，严格去重后共383题
-![题库数量预测](https://image-vankyle-1257862518.cos.ap-chongqing.myqcloud.com/github/RubbishMaogai/prediction.png)
-
-**说明题库的内容基本上都有了，但不排除之后会有改动**  
-
-`samples`: 原始测试网页  
-`tiku.py`: 生成题库的脚本  
-`tiku.html`: 当前生成的题库
-
 ## 如何使用题库?
 1. 在Release里下载tiku.html，或者直接下载source code  
    https://github.com/F5Soft/RubbishMaoGai/releases
 2. 用浏览器打开tiku.html
 3. `Ctrl+F` 全文搜索
+4. **全文搜索时，由于标点符号全半角、空格数量不匹配等问题，不建议复制整个标题搜索，可能会找不到结果！建议仅搜索题目标题的连续文字内容。**
+
+## 收集样本3569题，严格去重后共383题
+![题库数量预测](https://image-vankyle-1257862518.cos.ap-chongqing.myqcloud.com/github/RubbishMaogai/prediction.png)
+
+**说明题库的内容基本上都有了，仅有极小概率会漏题**  
+
+`samples`: 原始测试网页  
+`tiku.py`: 生成题库的脚本  
+`tiku.html`: 当前生成的题库
 
 ## 如何提供题目?
 1. 完成6次测试，不用做直接提交即可
