@@ -4,8 +4,13 @@ Author: F5
 Date: 2020-05-12
 """
 
+import matplotlib.pyplot as plt
 import os
 import html
+
+course = "my"  # 根据要生成的科目修改此处
+data_path = "samples_" + course
+tiku_path = "tiku_" + course + ".html"
 
 
 def unescape(raw: str):
@@ -23,7 +28,7 @@ def unescape(raw: str):
     return ans
 
 
-tiku = open("tiku.html", 'wt', encoding="utf8")
+tiku = open(tiku_path, 'wt', encoding="utf8", errors="replace")
 
 questions = set()
 question_count = 0
@@ -31,12 +36,12 @@ question_count_list = []
 total_count = 0
 total_count_list = []
 
-for dirname in os.listdir("samples"):
-    for filename in os.listdir("samples/" + dirname):
+for dirname in os.listdir(data_path):
+    for filename in os.listdir(os.path.join(data_path, dirname)):
         if "_files" in filename:
             continue
 
-        filename = "samples/" + dirname + '/' + filename
+        filename = os.path.join(data_path, dirname, filename)
         f = open(filename, 'rt', encoding='GBK')
         in_context = False
         in_answer_context = False
@@ -53,8 +58,9 @@ for dirname in os.listdir("samples"):
                     in_context = True
                     questions.add(title)
                     question_count += 1
-                    tiku.write("<h3>" + str(question_count) + ". " + title + "</h3>")
-    
+                    tiku.write("<h3>" + str(question_count) +
+                               ". " + title + "</h3>")
+
                 question_count_list.append(question_count)
                 total_count_list.append(total_count)
 
@@ -80,10 +86,9 @@ for dirname in os.listdir("samples"):
         f.close()
 
 tiku.close()
-print(question_count)
-print(total_count)
+print("去重后:", question_count)
+print("总计:", total_count)
 
 # 预测题库题目数量
-import matplotlib.pyplot as plt
 plt.plot(total_count_list, question_count_list)
 plt.show()
