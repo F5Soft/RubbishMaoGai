@@ -9,7 +9,7 @@ Auto generate database of questions based on known results for http://course.xmu
 
 ## 题目收集进度
 
-- 马原题库：收集 **1040** 题，去重后 **369** 题
+- 马原题库：收集 **2720** 题，去重后 **423** 题（预计在 **430** 题之内，大概需要收集共 **3000-3500** 题）
 - 毛概题库：收集完成，去重后 **383** 题
 
 ## 如何提供题目?

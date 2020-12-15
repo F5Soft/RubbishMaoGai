@@ -13,6 +13,18 @@ data_path = "samples_" + course
 tiku_path = "tiku_" + course + ".html"
 
 
+prepend = '''
+<head>
+    <title>题库</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<div>全文搜索时，由于标点符号全半角、空格数量不匹配等问题，不建议复制整个标题搜索，可能会找不到结果！建议仅搜索题目标题的连续文字内容。</div>
+<h5>GitHub仓库地址：<a href="https://github.com/F5Soft/RubbishMaoGai">https://github.com/F5Soft/RubbishMaoGai</a>。</h5>
+<h5>如果题库使用体验不错，欢迎star!</h5>
+<hr>
+'''
+
 def unescape(raw: str):
     """
     转换十进制Unicode表示的字符
@@ -29,6 +41,7 @@ def unescape(raw: str):
 
 
 tiku = open(tiku_path, 'wt', encoding="utf8", errors="replace")
+tiku.write(prepend)
 
 questions = set()
 question_count = 0
