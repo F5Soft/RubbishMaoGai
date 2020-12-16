@@ -1,4 +1,4 @@
-# Rubbish(MaoGai|MaYuan)
+# Rubbish(MaoGai|MaYuan|ShiGang)
 
 Auto generate database of questions based on known results for http://course.xmu.edu.cn/  
 自动根据已做结果生成厦大course的题库 
@@ -13,7 +13,9 @@ Auto generate database of questions based on known results for http://course.xmu
 
   > 亲自测试满分，如上图所示，但有一题多选题未查到
 
-- 毛概题库：收集完成，去重后 **383** 题
+- 毛概题库：收集完成，收集 **3569** 题，去重后 **383** 题
+
+- 史纲题库：收集完成，收集 **5240** 题，去重后 **855** 题
 
 ## 如何提供题目?
 
@@ -24,7 +26,7 @@ Auto generate database of questions based on known results for http://course.xmu
 
 ## 如何使用题库?
 
-1. 下载`tiku_my.html`（马原）或`tiku_mg.html`（毛概）并用浏览器打开
+1. 下载`tiku_my.html`（马原）或`tiku_mg.html`（毛概）或`tiku_sg.html`（史纲）并用浏览器打开
 2. `Ctrl+F` 全文搜索
 3. **全文搜索时，由于标点符号全半角、空格数量不匹配等问题，不建议复制整个标题搜索，可能会找不到结果！建议仅搜索题目标题的连续文字内容。**
 4. **有的题目前面内容相同，但是后缀不同，注意搜索结果有多个的情况，以免看错！**
@@ -32,5 +34,15 @@ Auto generate database of questions based on known results for http://course.xmu
 ## 如何使用该脚本生成其他题库?
 
 1. 操作同上，保存网页后，按照本仓库下samples文件夹的的结构，将测试结果放入samples文件夹
-2. 在Python版本大于等于3.6.8的环境下运行`tiku.py`。
+
+2. 在Python版本大于等于3.6.8的环境下运行`tiku.py`
+
+   ```bash
+   python tiku.py mg # 生成毛概题库
+   python tiku.py my # 生成马原题库
+   python tiku.py sg # 生成史纲题库
+   ```
+
+   > Linux下请使用`python3`
+
 3. 检查生成后的`tiku_xx.html`。由于每个人提供的浏览器差异，可能会有其他Bug出现，欢迎提出。

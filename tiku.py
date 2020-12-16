@@ -6,9 +6,14 @@ Date: 2020-05-12
 
 import matplotlib.pyplot as plt
 import os
+import sys
 import html
 
-course = "my"  # 根据要生成的科目修改此处
+if len(sys.argv) != 2:
+    print("Usage: python tiku.py [my|mg|sg]")
+    exit(0)
+
+course = sys.argv[1]
 data_path = "samples_" + course
 tiku_path = "tiku_" + course + ".html"
 
@@ -24,6 +29,7 @@ prepend = '''
 <h5>如果题库使用体验不错，欢迎star!</h5>
 <hr>
 '''
+
 
 def unescape(raw: str):
     """
