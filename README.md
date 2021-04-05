@@ -7,9 +7,11 @@ Auto generate database of questions based on known results for http://course.xmu
 
 ![亲测满分](https://github.com/F5Soft/RubbishMaoGai/blob/master/result.png?raw=true)  
 
+使用方法：https://f5soft.site/zh/labs/2020/1210/
+
 ## 题目收集进度
 
-- 马原题库：收集 **3800** 题，几乎完成，去重后 **430** 题（预计在 **440** 题之内，大概需要收集共 **3500-4000** 题）。第一版题库在release内已发布
+- 马原题库：收集 **3800** 题，去重后 **430** 题
 
   > 亲自测试满分，如上图所示，但有一题多选题未查到
 
