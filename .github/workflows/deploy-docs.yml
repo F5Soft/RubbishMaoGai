@@ -1,0 +1,47 @@
+
+name: 部署文档
+
+on:
+  push:
+    branches:
+      # 确保这是你正在使用的分支名称
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Generate Markdown
+        run: |
+          python3 tiku.py my
+          python3 tiku.py mg
+          python3 tiku.py sg
+
+      - name: Build Pages
+        env:
+          NODE_OPTIONS: --max_old_space_size=8192
+        run: |
+          yarn run build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: src/.vuepress/dist
