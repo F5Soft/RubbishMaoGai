@@ -67,7 +67,11 @@ def getSamplesInfo(subject : str):
                             total_count += 1
                             low = line.find('value=') + 7
                             high = line.find('><iframe') - 1
-                            title = unescape(line[low:high])
+                            contents = re.findall('[\u4e00-\u9fa5A-Za-z0-9（）\(\)《》“”"",\.，。：；]+', unescape(line[low:high]))
+                            title = ''
+                            for i in contents:
+                                if i != '宋体' and i != '黑体' and i != '微软雅黑':
+                                    title += i
 
                             if title not in questions:
                                 in_context = True
