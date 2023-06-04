@@ -6,7 +6,7 @@ export default hopeTheme({
   hostname: "https://banks.sherkey.ml/",
   iconAssets: "iconfont",
   logo: "/logo.svg",
-  repo: "SherkeyXD/XMU-Course-Bank",
+  repo: "F5Soft/RubbishMaoGai",
   docsDir: "/src",
   locales: {
     "/": {
@@ -26,6 +26,7 @@ export default hopeTheme({
   // },
 
   plugins: {
+    activeHeaderLinks: false,
     comment: {
       provider: "Waline",
       serverURL: "https://waline.sherkey.ml/",

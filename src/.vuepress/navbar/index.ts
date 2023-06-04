@@ -9,6 +9,12 @@ export const Navbar = navbar([
   { 
     text: "题库", 
     icon: "blog", 
-    link: "/banks/" 
+    link: "/banks/",
+    prefix: "/banks/",
+    children: [
+      "my.md", 
+      "mg.md",
+      "sg.md",
+    ], 
   },
 ]);

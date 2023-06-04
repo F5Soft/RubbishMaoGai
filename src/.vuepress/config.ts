@@ -8,7 +8,7 @@ export default defineUserConfig({
   locales: {
     "/": {
       lang: "zh-CN",
-      title: "厦门大学course题库",
+      title: "厦门大学 Course 题库",
       description: "一个收集厦门大学course.xmu.edu.cn题库的网站",
     },
   },
