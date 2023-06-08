@@ -1,0 +1,19 @@
+{
+  "name": "xmu-course-bank",
+  "version": "3.0.0",
+  "description": "提供 http://course.xmu.edu.cn/ 上在线测试的题库",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "vuepress build src",
+    "clean": "vuepress dev src --clean-cache",
+    "dev": "vuepress dev src",
+    "update": "yarn dlx vp-update"
+  },
+  "devDependencies": {
+    "@vuepress/client": "2.0.0-beta.62",
+    "vue": "^3.2.47",
+    "vuepress": "2.0.0-beta.62",
+    "vuepress-theme-hope": "2.0.0-beta.216"
+  }
+}

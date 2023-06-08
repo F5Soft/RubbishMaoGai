@@ -1,3 +1,39 @@
-samples_*/*/*_files
-.vscode/
-.idea/
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Dependency directories
+node_modules/
+jspm_packages//
+
+# vuepress build output
+src/.vuepress/dist
+
+# vuepress v2.x temp and cache directory
+.temp
+.cache
+
+# Stores IDE settings
+.vscode
+.idea
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# repo specified
+samples/*/*/*_files
+src/banks
