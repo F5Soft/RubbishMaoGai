@@ -3,7 +3,7 @@ import { Navbar } from "./navbar/index.js";
 import { Sidebar } from "./sidebar/index.js";
 
 export default hopeTheme({
-  hostname: "https://banks.sherkey.ml/",
+  hostname: "https://f5soft.github.io/RubbishMaoGai/",
   iconAssets: "iconfont",
   logo: "/logo.svg",
   repo: "F5Soft/RubbishMaoGai",
