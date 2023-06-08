@@ -49,3 +49,7 @@
    > Linux下请使用`python3`
 
 3. 检查 `src/banks` 文件夹下的 `xx.md`
+
+## 致谢
+
+[![Contributors](https://contributors-img.web.app/image?repo=F5Soft/RubbishMaoGai)](https://github.com/F5Soft/RubbishMaoGai/graphs/contributors)
