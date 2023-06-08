@@ -8,6 +8,7 @@ export default hopeTheme({
   logo: "/logo.svg",
   repo: "F5Soft/RubbishMaoGai",
   docsDir: "/src",
+  docsBranch: "main",
   locales: {
     "/": {
       navbar: Navbar,
