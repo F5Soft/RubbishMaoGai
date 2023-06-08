@@ -4,7 +4,7 @@ name: Build and deploy
 on:
   push:
     branches:
-      - main
+      - master
 
 concurrency:
   group: "pages"
