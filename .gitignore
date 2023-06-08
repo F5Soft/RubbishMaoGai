@@ -36,4 +36,5 @@ src/.vuepress/dist
 
 # repo specified
 samples/*/*/*_files
-src/banks
+src/banks/*.md
+!src/banks/README.md

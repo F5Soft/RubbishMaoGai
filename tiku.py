@@ -26,13 +26,13 @@ def getSamplesInfo(subject : str):
         "sg": "samples/ShiGang",
         "my": "samples/MaYuan"
     }
-    subjects_head = {
-        "mg": "# 毛概题库\n\n",
-        "sg": "# 史纲题库\n\n",
-        "my": "# 马原题库\n\n"
+    subject_name = {
+        "mg": "毛概",
+        "sg": "史纲",
+        "my": "马原"
     }
 
-    prefix = subjects_head[subject] + "::: info\n全文搜索时，由于标点符号全半角、空格数量不匹配等问题，不建议复制整个标题搜索，可能会找不到结果！建议仅搜索题目标题的连续文字内容\n:::\n\n## 题目列表\n\n"
+    prefix = "# " + subject_name[subject] + "题库\n\n::: info\n全文搜索时，由于标点符号全半角、空格数量不匹配等问题，不建议复制整个标题搜索，可能会找不到结果！建议仅搜索题目标题的连续文字内容\n:::\n\n## 题目列表\n\n"
 
     questions = set()
     question_count = 0
@@ -111,8 +111,11 @@ def getSamplesInfo(subject : str):
                             choices.clear()
                             answers.clear()
 
+    with open("./src/banks/README.md", "a", encoding="utf8") as f:
+        f.write(f"| [{subject_name[subject]}](/RubbishMaoGai/banks/{subject}.html) | {total_count} | {question_count} |\n")
     print("去重后:", question_count)
     print("总计:", total_count)
+    
             
 
 if __name__ == "__main__":
