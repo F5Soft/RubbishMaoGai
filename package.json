@@ -1,5 +1,5 @@
 {
-  "name": "xmu-course-bank",
+  "name": "rubbish-maogai",
   "version": "3.0.0",
   "description": "提供 http://course.xmu.edu.cn/ 上在线测试的题库",
   "license": "MIT",
@@ -11,9 +11,10 @@
     "update": "yarn dlx vp-update"
   },
   "devDependencies": {
-    "@vuepress/client": "2.0.0-beta.62",
+    "@vuepress/client": "2.0.0-beta.63",
     "vue": "^3.2.47",
-    "vuepress": "2.0.0-beta.62",
-    "vuepress-theme-hope": "2.0.0-beta.216"
-  }
+    "vuepress": "2.0.0-beta.63",
+    "vuepress-theme-hope": "2.0.0-beta.224"
+  },
+  "packageManager": "yarn@3.6.0"
 }
