@@ -21,6 +21,7 @@ export default hopeTheme({
   },
   fullscreen: true,
   backToTop: true,
+  sidebarSorter: ["readme", "filename"],
 
   // encrypt: {
   //   

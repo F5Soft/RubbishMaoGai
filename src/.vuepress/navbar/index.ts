@@ -12,8 +12,8 @@ export const Navbar = navbar([
     link: "/banks/",
     prefix: "/banks/",
     children: [
-      "my", 
-      "mg",
+      "mg", 
+      "my",
       "sg",
     ], 
   },

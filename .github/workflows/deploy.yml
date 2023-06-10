@@ -35,8 +35,8 @@ jobs:
 
       - name: Generate Markdown
         run: |
-          python3 tiku.py my
           python3 tiku.py mg
+          python3 tiku.py my
           python3 tiku.py sg
 
       - name: Build Pages
