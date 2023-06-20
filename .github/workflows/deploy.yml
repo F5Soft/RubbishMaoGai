@@ -45,10 +45,18 @@ jobs:
         run: |
           yarn run build
 
-      - name: Upload artifacts
+      - name: Upload Page artifacts
         uses: actions/upload-pages-artifact@v1
         with:
           path: src/.vuepress/dist
+
+      - name: Upload Markdown artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Markdown
+          path: |
+            src/banks/*.md
+            !src/banks/README.md
 
   Deploy:
     runs-on: ubuntu-latest
