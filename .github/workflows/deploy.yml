@@ -31,7 +31,9 @@ jobs:
           cache: yarn
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: |
+          pip install beautifulsoup4
+          yarn install --immutable
 
       - name: Generate Markdown
         run: |
