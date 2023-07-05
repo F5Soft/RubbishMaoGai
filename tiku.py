@@ -81,7 +81,7 @@ def getSamplesInfo(subject : str):
                                         if j in answers:
                                             tiku.write(f"- [x] {j}\n")
                                         else:
-                                            tiku.write(f"- [] {j}\n")     
+                                            tiku.write(f"- [ ] {j}\n")     
 
     with open("./src/banks/README.md", "a", encoding="utf8") as f:
         f.write(f"| [{subject_name[subject]}](/RubbishMaoGai/banks/{subject}.html) | {total_count} | {question_count} |\n")
