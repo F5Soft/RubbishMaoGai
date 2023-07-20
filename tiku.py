@@ -35,7 +35,7 @@ def getSamplesInfo(subject : str):
 
     prefix = "---\neditLink: false\n---\n# " + subject_name[subject] + "题库\n\n::: info\n全文搜索时，由于标点符号全半角、空格数量不匹配等问题，不建议复制整个标题搜索，可能会找不到结果！建议仅搜索题目标题的连续文字内容\n:::\n\n## 题目列表\n"
 
-    questions = []
+    questions = set()
     question_count = 0
     total_count = 0
 
@@ -54,7 +54,7 @@ def getSamplesInfo(subject : str):
                     continue
                 
                 filename = os.path.join(data_path, dirname, filename)
-                soup = bs(open(filename, "r", encoding="GBK"), "html.parser")
+                soup = bs(open(filename, "r", encoding="GBK"), "lxml")
 
                 tables = soup.find_all("table", attrs={"class": "infotable"})
                 for i in tables:
@@ -67,7 +67,7 @@ def getSamplesInfo(subject : str):
                             total_count += 1
                             continue
                         else:
-                            questions.append(title)
+                            questions.add(title)
                             question_count += 1
                             total_count += 1
                             choices = i.find_all("input", attrs={"name": "answer"})
