@@ -2,7 +2,7 @@
 home: true
 icon: home
 title: 主页
-heroImage: /logo.svg
+heroImage: /logo.gif
 heroText: 厦门大学 Course 题库
 tagline: 反对无效学习，从我做起
 actions:
