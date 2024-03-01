@@ -31,7 +31,7 @@ export default hopeTheme({
     activeHeaderLinks: false,
     comment: {
       provider: "Waline",
-      serverURL: "https://waline.sherkey.pro/",
+      serverURL: "https://waline.prts.tech/",
     },
 
     components: {
